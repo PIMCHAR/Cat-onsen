@@ -17,7 +17,7 @@ export default class PersonAdd extends React.Component {
       name: this.state.name
     };
 
-    axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
+    axios.post(`http://localhost:8080/user`, { user })
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -30,7 +30,9 @@ export default class PersonAdd extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Person Name:
-            <input type="text" name="name" onChange={this.handleChange} />
+            <input type="text" email="email" onChange={this.handleChange} />
+            <br></br>
+            <input type="text" tel="tel" onChange={this.handleChange} />
           </label>
           <button type="submit">Add</button>
         </form>

@@ -7,10 +7,12 @@ export default class PersonList extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+    axios.get(`http://localhost:8080/user`)
       .then(res => {
         const persons = res.data;
         this.setState({ persons });
+        console.log(persons);
+
       })
   }
 
@@ -20,10 +22,23 @@ export default class PersonList extends React.Component {
         {
           this.state.persons
             .map(person =>
-              <li key={person.id}>{person.name}</li>
+              <li key={person.id}>{person.email}</li>
+            )
+        }
+        {
+          this.state.persons
+            .map(person =>
+              <li key={person.id}>{person.tel}</li>
+            )
+        }
+        {
+          this.state.persons
+            .map(person =>
+              <li key={person.id}>{person.appointment.date}</li>
             )
         }
       </ul>
+      
     )
   }
 }
