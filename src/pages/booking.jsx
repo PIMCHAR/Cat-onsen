@@ -5,9 +5,9 @@ export default function Booking() {
         <form>
             <input type="date" name="Check-in" />
             <select label="Time">
-                <option value={"1"}>8.00 AM</option>
-                <option value={"2"}>9.00 AM</option>
-                <option value={"3"}>10.00 AM</option>
+                <option value={"08.00"}>8.00 AM</option>
+                <option value={"09.00"}>9.00 AM</option>
+                <option value={"10.00"}>10.00 AM</option>
             </select>
         </form>
     )
