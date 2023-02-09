@@ -2,8 +2,9 @@ body {
     color: #fff;
 }
 
-input {
+input{
     background-color: transparent !important;
+    color: #fff;
 }
 
 button {
@@ -13,11 +14,15 @@ button {
 }
 
 .information-info {
+    margin-top: 2rem;
     background-color: #102833;
+    padding: 30px;
 }
 
 .summary {
+    margin: 2rem;
+    justify-content: center;
     border-style: solid;
     border-radius: 25px;
-    padding: 20px;
+    padding: 30px;
 }

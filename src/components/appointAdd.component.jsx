@@ -4,22 +4,23 @@ import "./appointAdd.component.css";
 
 const AppointAdd = () => {
   const [newAppoint, setNewAppoints] = useState({
-    room:3,
-    payment:"test",
-    date:"2023-01-27",
-    user:{
-        email: "",
-        tel: "",
-        name:""
+    room: 3,
+    payment: "test",
+    date: "2023-01-27",
+    user: {
+      email: "",
+      tel: "",
+      name: ""
     }
   });
 
   const handleChange = event => {
     setNewAppoints({
       ...newAppoint,
-      user:{
+      user: {
         ...newAppoint.user,
-        [event.target.name]: event.target.value}
+        [event.target.name]: event.target.value
+      }
     });
   };
 
@@ -35,7 +36,7 @@ const AppointAdd = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="row">
-        <div className="col-6 information-info">
+        <div className="col-7 information-info">
           <div className="row">
             <div className="col">
               <span>INFORMATION INFO</span>
@@ -85,10 +86,14 @@ const AppointAdd = () => {
           <input type="file" name="" id="" />
           <button type="submit">Upload</button>
         </div>
-        <div className="col-3">
+        <div className="col-4">
           <div className="row summary">
-            <h4>Summary</h4>
-            <h4>Edit</h4>
+            <div className="col">
+              <span>Summary</span>
+            </div>
+            <div className="col text-end">
+              <span>Edit</span>
+            </div>
             <hr />
             Date
             Session
@@ -100,7 +105,8 @@ const AppointAdd = () => {
             Total Amount
           </div>
           <div className="row">
-            <button type="submit">CONFIRM</button>
+            <button type="submit" style={{width: "260px",
+    height: "100px",marginLeft:"2.5rem"}}>CONFIRM</button>
           </div>
 
         </div>
