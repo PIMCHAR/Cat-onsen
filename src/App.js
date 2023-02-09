@@ -1,13 +1,9 @@
-//import PersonAdd from './components/PersonAdd';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UserAdd from './components/userAdd.component';
-import UserList from './components/userList.component';
+import Booking from './pages/booking';
+
 function App() {
   return (
-    <div className="App">
-      <UserAdd/>
-      <UserList/>
-    </div>
+    <Booking />
   )
 }
 export default App;
