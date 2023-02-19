@@ -4,29 +4,31 @@ import "./appointList.component.css";
 
 function AppointList() {
 
-    const [appointments, setAppointment] = useState([]);
+    const [appointments, setAppointments] = useState([]);
     const [apType, setType] = useState('onsen');
     const [apDate, setDate] = useState('2023-02-19');
     const [apTime, setTime] = useState('08:00:00.000+00:00');
 
-
-    const [checkedRooms, setcheckedRooms] = useState({});
-    //const [roomOptions, setRoomOptions] = [
-    const roomOptions =[
-        { id: 1, value: "room1", disabled: false },
-        { id: 2, value: "room2", disabled: false },
-        { id: 3, value: "room3", disabled: false },
-        { id: 4, value: "room4", disabled: false },
-        { id: 5, value: "room5", disabled: false },
-        { id: 6, value: "room6", disabled: false }
-    ]
-
-    const handleCheckboxChange = (event) => {
-        setcheckedRooms({
-            ...checkedRooms,
-            [event.target.name]: event.target.checked,
-        });
+    const [roomOptions, setRoomOptions] = useState([]);
+    const checkedRooms = () => {
+        if (apType === 'onsen') {
+            setRoomOptions([
+                { id: 1, value: "room1", disabled: false },
+                { id: 2, value: "room2", disabled: false },
+                { id: 3, value: "room3", disabled: false },
+                { id: 4, value: "room4", disabled: false },
+                { id: 5, value: "room5", disabled: false },
+                { id: 6, value: "room6", disabled: false }
+            ])
+        } else {
+            setRoomOptions([
+                { id: 1, value: "room1", disabled: false },
+                { id: 2, value: "room2", disabled: false },
+                { id: 3, value: "room3", disabled: false },
+            ])
+        }
     };
+
 
     const handleInputType = (event) => {
         setType(event.target.value);
@@ -45,7 +47,13 @@ function AppointList() {
 
         axios.get(`http://localhost:8080/${apType}/date/${apDate}T${apTime}`)
             .then(res => {
-                setAppointment(res.data);
+                //const roomUn = res.data
+                //const listRoomUn = roomUn.map(room => room.room);
+                setAppointments(res.data);
+                checkedRooms();
+
+                
+
             })
             .catch(err => {
                 console.error(err);
@@ -78,8 +86,6 @@ function AppointList() {
                         <input
                             type="checkbox"
                             name={option.id}
-                            checked={checkedRooms[option.id] || false}
-                            onChange={handleCheckboxChange}
                         />
                         {option.value}
                     </label>
