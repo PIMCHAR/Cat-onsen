@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./appointAdd.component.css";
 
-const AppointAdd = () => {
+function AppointAdd() {
   const [newAppoint, setNewAppoints] = useState({
     room: 3,
     payment: "test",
@@ -95,18 +95,17 @@ const AppointAdd = () => {
               <span>Edit</span>
             </div>
             <hr />
-            Date
-            Session
-            Room
+            <span>Date</span>
+            <span>Session</span>
+            <span>Room</span>
             <hr style={{ border: "1px dashed #fff" }} />
-            Subtotal
-            Tax(7%)
+            <span>Subtotal</span>
+            <span>Tax(7%)</span>
             <hr />
             Total Amount
           </div>
-          <div className="row">
-            <button type="submit" style={{width: "260px",
-    height: "100px",marginLeft:"2.5rem"}}>CONFIRM</button>
+          <div className="row submit-btn">
+            <button type="submit">CONFIRM</button>
           </div>
 
         </div>

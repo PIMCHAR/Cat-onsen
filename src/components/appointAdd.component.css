@@ -4,7 +4,7 @@ body {
 
 input{
     background-color: transparent !important;
-    color: #fff;
+    color: #fff !important;
 }
 
 button {
@@ -25,4 +25,10 @@ button {
     border-style: solid;
     border-radius: 25px;
     padding: 30px;
+}
+
+.submit-btn{
+    margin: 2rem;
+    height: 120px;
+    font-size: 24px;
 }

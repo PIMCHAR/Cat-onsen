@@ -2,6 +2,10 @@ body{
     background-color: #091E25;
 }
 
+.banner{
+    background-repeat: repeat-x;
+}
+
 .compo{
     display: flex;
     justify-content: center;
