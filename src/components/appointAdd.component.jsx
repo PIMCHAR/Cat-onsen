@@ -107,7 +107,6 @@ function AppointAdd() {
           <div className="row submit-btn">
             <button type="submit">CONFIRM</button>
           </div>
-
         </div>
       </div>
 
