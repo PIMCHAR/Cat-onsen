@@ -1,0 +1,56 @@
+* {
+  background-color: #DFE4E9;
+  color: #1d3357;
+  font-family: "Shippori Mincho", serif;
+}
+.ppp {
+  margin-left: 200px;
+  padding-bottom: 20%;
+}
+.BodyandSoul {
+  padding-top: 50%;
+  font-size: 40px;
+}
+.Relax {
+  font-size: medium;
+  font-weight: lighter;
+}
+.img2 {
+  position: absolute;
+  bottom: -60%;
+  right: 0px;
+  width: 450px;
+}
+
+.f1 {
+  background-color: #d3d9dd;
+  height: 280px;
+  
+}
+.book1 {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.img1 {
+  position: absolute;
+  left: 54%;
+  top: 15%;
+  width: 450px;
+}
+.co1 {
+  top: 133%;
+  position: absolute;
+  font-size: 150px;
+  background: 0;
+  opacity: 20%;
+  left: 0px;
+  color:transparent;
+  -webkit-text-stroke: 3px #1d3357;
+}
+.img3{
+  width: 400px;
+  position: absolute;
+  left: 0;
+  top: -50px;
+}
+
