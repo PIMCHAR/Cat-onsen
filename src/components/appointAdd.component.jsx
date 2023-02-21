@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./appointAdd.component.css";
 
-function AppointAdd() {
+function AppointAdd(prop) {
   const [newAppoint, setNewAppoints] = useState({
     room: 3,
     payment: "test",
@@ -13,6 +13,20 @@ function AppointAdd() {
       name: ""
     }
   });
+
+  /*{
+    room: 3,
+    payment: "test",
+    date: "2023-01-27",
+    user: {
+      email: "",
+      tel: "",
+      name: ""
+    }
+  }*/
+
+  /*prop.title,date,session,room,price */
+  
 
   const handleChange = event => {
     setNewAppoints({
@@ -32,6 +46,14 @@ function AppointAdd() {
         console.log(res.data);
       });
   };
+
+  const calTax = (prop) => {
+    return prop.price * 0.07;
+  }
+
+  const calToTal = (prop) => {
+    return  parseFloat(prop.price) + calTax(prop);
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -83,7 +105,7 @@ function AppointAdd() {
           </div>
           <hr />
           <label htmlFor="formGroupExampleInput" className="form-label">Upload receipt</label>
-          <input type="file" name="" id="" />
+          <input type="file" accept="image/png" />
           <button type="submit">Upload</button>
         </div>
         <div className="col-4">
@@ -95,14 +117,14 @@ function AppointAdd() {
               <span>Edit</span>
             </div>
             <hr />
-            <span>Date</span>
-            <span>Session</span>
-            <span>Room</span>
+            <span>Date</span> {prop.date}
+            <span>Session</span> {prop.session}
+            <span>Room</span> {prop.checkedValues}
             <hr style={{ border: "1px dashed #fff" }} />
-            <span>Subtotal</span>
-            <span>Tax(7%)</span>
+            <span>Subtotal</span>{prop.price} THB
+            <span>Tax(7%)</span>{calTax(prop)} THB
             <hr />
-            Total Amount
+            Total Amount {calToTal(prop)} THB
           </div>
           <div className="row submit-btn">
             <button type="submit">CONFIRM</button>
