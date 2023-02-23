@@ -1,5 +1,5 @@
 * {
-  background-color: #DFE4E9;
+  background-color: #dfe4e9;
   color: #1d3357;
   font-family: "Shippori Mincho", serif;
 }
@@ -25,7 +25,7 @@
 .f1 {
   background-color: #d3d9dd;
   height: 280px;
-  
+
 }
 .book1 {
   font-weight: bold;
@@ -44,13 +44,77 @@
   background: 0;
   opacity: 20%;
   left: 0px;
-  color:transparent;
+  color: transparent;
   -webkit-text-stroke: 3px #1d3357;
 }
-.img3{
+.co2{
+  color: transparent;
+  -webkit-text-stroke: 3px #a0afc6;
+  background: 0;
+  opacity: 20%;
+  font-size: 150px;
+  left: 0px;
+  position: absolute;
+  top: 300%;
+}
+.img3 {
   width: 400px;
   position: absolute;
   left: 0;
   top: -50px;
 }
-
+.img4 {
+  width: 90pc;
+}
+.map {
+  background-color: #091e25;
+  height: 500px;
+}
+.map1 {
+  background-color: #091e25;
+  height: 250px;
+}
+.pp2 {
+  font-size: 26px;
+  color: #ffffff;
+  background-color: transparent;
+  margin-left: 19%;
+  margin-top: -80px;
+}
+.pp1 {
+  font-size: 14px;
+  color: #ffffff;
+  background-color: transparent;
+  margin-left: -19%;
+  margin-top: -3%;
+}
+.pp3{
+  color: #ffffff;
+  background-color: transparent;
+  margin-left: 17%;
+  opacity: 50%;
+  padding-top: 5%;
+  font-size: 20px;
+}
+.pp4{
+  color: #ffffff;
+  background-color: transparent;
+  margin-left: -16%;
+  padding: 1%;
+  font-size: 60px;
+}
+.map2{
+  background-color: transparent;
+  width:30%;
+  height: 150px;
+  color: #ffffff;
+  margin-left: 60%;
+  padding-top: 3%;
+  padding-left: 9%;
+}
+.map3{
+  background-color: #091e25;
+}
+.map4{
+  background-color: #091e25;
+}
