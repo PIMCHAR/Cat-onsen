@@ -3,37 +3,22 @@ import axios from 'axios';
 import "./appointList.component.css";
 import hotSpringPic from '../assets/hotSpring.svg';
 import massagePic from '../assets/massage.svg';
+import AppointAdd from "../components/appointAdd.component";
 
 function AppointList() {
 
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
-    const tomorrowFormatted = tomorrow.toISOString().substr(0, 10);
-
+    const tomorrowFormatted = tomorrow.toISOString().substring(0, 10);
     const [apType, setApType] = useState('onsen');
     const [apDate, setApDate] = useState(tomorrowFormatted);
     const [apTime, setApTime] = useState('08:00:00.000+00:00');
-
-    const [checkFormGetRoom, setCheckFormGetRoom] = useState(false);
     const [selectedRooms, setSelectedRooms] = useState([]);
-
-    const handleInputType = (event) => {
-        setApType(event.target.value);
-        setCheckFormGetRoom(false);
-    };
-
-    const handleInputDate = (event) => {
-        setApDate(event.target.value);
-        setCheckFormGetRoom(false);
-    };
-
-    const handleInputTime = (event) => {
-        setApTime(event.target.value);
-        setCheckFormGetRoom(false);
-    };
-
     const [listRoomUn, setListRoomUn] = useState([]);
+    const [checkFormGetRoom, setCheckFormGetRoom] = useState(false);
+    const [checkSendData, setCheckSendData] = useState(false);
+
     const checkedRooms = (listRoom) => {
         if (apType === 'onsen') {
             setListRoomUn([
@@ -53,6 +38,20 @@ function AppointList() {
         }
     };
 
+    const handleInputType = (event) => {
+        setApType(event.target.value);
+        setCheckFormGetRoom(false);
+    };
+
+    const handleInputDate = (event) => {
+        setApDate(event.target.value);
+        setCheckFormGetRoom(false);
+    };
+
+    const handleInputTime = (event) => {
+        setApTime(event.target.value);
+        setCheckFormGetRoom(false);
+    };
 
     const handleCheckboxChange = (event) => {
         const roomId = Number(event.target.name);
@@ -76,26 +75,6 @@ function AppointList() {
     };
 
     //format
-    const titlePic = () => {
-        if (apType === 'onsen') {
-            return (
-                <>
-                    <img src={hotSpringPic} alt="logo hot spring" />
-                    <span>Hot Spring</span>
-                    <span>45 mins</span>
-                </>
-            )
-        } else {
-            return (
-                <>
-                    <img src={massagePic} alt="logo massage" />
-                    <span>Thai Massage</span>
-                    <span>50 mins</span>
-                </>
-            )
-        }
-    }
-
     const checkedValues = listRoomUn.filter((room) => selectedRooms.includes(room.id))
         .sort((a, b) => a.id - b.id)
         .map((room) => room.value);
@@ -120,61 +99,117 @@ function AppointList() {
 
                 checkedRooms(listRoom);
                 setCheckFormGetRoom(true);
+                setCheckSendData(false);
             })
             .catch(err => {
                 console.error(err);
             });
-
     };
 
-    const checkboxAppointInfo = checkFormGetRoom ? (
-        <>
+    const handleData = (event) => {
+        if (checkedValues.length > 0) {
+            setCheckSendData(true);
+            setCheckFormGetRoom(false);
+        } else {
+            alert('Please select at least one option.');
+        }
+    }
+
+    const titlePic = () => {
+        if (apType === 'onsen') {
+            return (
+                <>
+                    <img src={hotSpringPic} alt="logo hot spring" />
+                    <span>Hot Spring</span>
+                    <span>45 mins</span>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <img src={massagePic} alt="logo massage" />
+                    <span>Thai Massage</span>
+                    <span>50 mins</span>
+                </>
+            )
+        }
+    }
+
+    const checkboxAppointInfo = checkFormGetRoom ? (<>
+        <div>
+            {listRoomUn.map((option) => (
+                <label key={option.id}>
+                    <input
+                        type="checkbox"
+                        name={option.id}
+                        disabled={option.disabled}
+                        onChange={handleCheckboxChange}
+                    />
+                </label>
+            ))}
+        </div>
+        <div>
+            <span>SUMMARY</span>
             <div>
-                {listRoomUn.map((option) => (
-                    <label key={option.id}>
-                        <input
-                            type="checkbox"
-                            name={option.id}
-                            disabled={option.disabled}
-                            onChange={handleCheckboxChange}
-                        />
-                    </label>
-                ))}
+                {titlePic()}
+                <span>Information</span>
+                <span>{formatDate(apDate)}</span>
+                <span>{apTime.substring(0, 5)}</span>
+                <span>ROOMS :</span>
+                {checkedValues.join(', ')}
+                <span>PRICE : {calPrice()} THB</span>
+                <button type='submit' name='submit2' onClick={handleData}>APPOINT NOW</button>
             </div>
-            <div>
-                <span>SUMMARY</span>
-                <div>
-                    {titlePic()}
-                    <span>Information</span>
-                    <span>{formatDate(apDate)}</span>
-                    <span>{apTime.substring(0, 5)}</span>
-                    <span>ROOMS :</span>
-                    {checkedValues.join(', ')}
-                    <span>PRICE : {calPrice()} THB</span>
-                    <button>APPOINT NOW</button>
-                </div>
-            </div>
-        </>
+        </div>
+    </>
     ) : null;
+
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <select name="type" value={apType} onChange={handleInputType}>
-                    <option value="onsen">onsen</option>
-                    <option value="massage">massage</option>
-                </select>
-                <input type="date" name="date" value={apDate} min={tomorrowFormatted} onChange={handleInputDate} />
-                <select name="time" value={apTime} onChange={handleInputTime}>
-                    <option value="08:00:00.000+00:00">08:00</option>
-                    <option value="09:00:00.000+00:00">09:00</option>
-                    <option value="10:00:00.000+00:00">10:00</option>
-                </select>
-                <button type="submit">Check Availability</button>
-            </form>
+            {checkSendData ? (
+                <AppointAdd
+                    type={apType}
+                    listRoom={selectedRooms}
+                    date={apDate}
+                    session={apTime}
+                    checkedValues={checkedValues.join(",")}
+                    price={calPrice()}
+                    dayDate={formatDate(apDate)}
+                />
+            ) : (
+                <form onSubmit={handleSubmit}>
+                    <select
+                        name="type"
+                        value={apType}
+                        onChange={handleInputType}
+                    >
+                        <option value="onsen">onsen</option>
+                        <option value="massage">massage</option>
+                    </select>
+                    <input
+                        type="date"
+                        name="date"
+                        value={apDate}
+                        min={tomorrowFormatted}
+                        onChange={handleInputDate}
+                    />
+                    <select
+                        name="time"
+                        value={apTime}
+                        onChange={handleInputTime}
+                    >
+                        <option value="08:00:00.000+00:00">08:00</option>
+                        <option value="09:00:00.000+00:00">09:00</option>
+                        <option value="10:00:00.000+00:00">10:00</option>
+                    </select>
+                    <button type="submit" name="submit1">
+                        Check Availability
+                    </button>
+                </form>
+            )}
             {checkboxAppointInfo}
         </>
     );
 };
-
 export default AppointList;

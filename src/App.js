@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import Booking from './pages/booking';
-import Home from './pages/home';
+import Booking from './pages/booking';
+//import Home from './pages/home';
 
 function App() {
   return (
-    <Home />
+    <Booking />
   )
 }
 export default App;
