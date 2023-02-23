@@ -55,7 +55,7 @@
   font-size: 150px;
   left: 0px;
   position: absolute;
-  top: 308%;
+  top: 300%;
 }
 .img3 {
   width: 400px;
@@ -64,7 +64,7 @@
   top: -50px;
 }
 .img4 {
-  width: 100pc;
+  width: 90pc;
 }
 .map {
   background-color: #091e25;
@@ -79,13 +79,14 @@
   color: #ffffff;
   background-color: transparent;
   margin-left: 19%;
+  margin-top: -80px;
 }
 .pp1 {
   font-size: 14px;
   color: #ffffff;
   background-color: transparent;
   margin-left: -19%;
-  padding-top: 3%;
+  margin-top: -3%;
 }
 .pp3{
   color: #ffffff;
