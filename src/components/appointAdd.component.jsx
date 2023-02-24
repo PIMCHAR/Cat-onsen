@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "./appointAdd.component.css";
+import React, { useState } from 'react';
+import axios from 'axios';
+import './appointAdd.component.css';
 
 function AppointAdd(prop) {
 
   const [image, setImage] = useState(null);
   const apType = prop.type;
   const apPrice = prop.price;
+  const apDateTime = `${prop.date}T${prop.session}`;
 
   const [formUser, setFormUser] = useState({
-    email: "",
-    tel: "",
-    name: ""
+    email: '',
+    tel: '',
+    name: ''
   });
 
   const handleChange = (event) => {
@@ -59,18 +60,18 @@ function AppointAdd(prop) {
         const newAppoint = {
           massage: {
             room: rooms[i],
-            date: "2023-02-23T08:00:00.000+00:00",
+            date: apDateTime,
             user: formUser,
           },
           image: image,
         };
 
         const formData = new FormData();
-        formData.append("massage", JSON.stringify(newAppoint.massage));
-        formData.append("image", newAppoint.image);
+        formData.append('massage', JSON.stringify(newAppoint.massage));
+        formData.append('image', newAppoint.image);
 
         const response = await axios.post(
-          "http://localhost:8080/massage",
+          `http://localhost:8080/${apType}`,
           formData,
           {
             headers: {
@@ -78,8 +79,6 @@ function AppointAdd(prop) {
             },
           }
         );
-
-        console.log(`Response for room ${rooms[i]}:`);
         console.log(response);
         console.log(response.data);
       }

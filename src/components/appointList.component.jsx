@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./appointList.component.css";
+import './appointList.component.css';
 import hotSpringPic from '../assets/hotSpring.svg';
 import massagePic from '../assets/massage.svg';
-import AppointAdd from "../components/appointAdd.component";
+import AppointAdd from '../components/appointAdd.component';
 
 function AppointList() {
 
