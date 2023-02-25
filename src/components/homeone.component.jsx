@@ -1,9 +1,13 @@
 import React from "react";
 import "./homeone.component.css";
+import Menu from "../components/menu"
 
 export default function Homeone() {
   return (
     <div>
+      <div>
+        <Menu/>
+      </div>
       <div className="ppp">
         <img
           className="img3"

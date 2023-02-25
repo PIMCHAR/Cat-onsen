@@ -58,6 +58,7 @@
   top: 300%;
 }
 .img3 {
+  position:relative;
   width: 400px;
   position: absolute;
   left: 0;
