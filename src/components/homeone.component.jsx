@@ -1,12 +1,13 @@
 import React from "react";
 import "./homeone.component.css";
-import Menu from "../components/menu"
+import Menu from "../components/menu";
+import Two from "../components/hometwo";
 
 export default function Homeone() {
   return (
     <div>
       <div>
-        <Menu/>
+        <Menu />
       </div>
       <div className="ppp">
         <img
@@ -20,17 +21,17 @@ export default function Homeone() {
           alt=""
         />
         <p className="BodyandSoul">
-          For The Perfect Balance of <br /> Body and Soul
+          For The Perfect Balance of <br /> Body and Soul <br />
+          <p className="Relax">
+            All Let’s Relax treatments are meticulously designed <br /> to take
+            our guest to the height of relaxation and relieve stress. <br />
+            Similarly, our spa packages let guests enjoy sets of spa treatments
+            that suit their specific desire. <br /> The standardized massage
+            technique makes sure you experience <br /> Let’s Relax Spa’s
+            original service every time, everywhere by our certified therapist.
+          </p>
+          <p className="book1">book now</p>
         </p>
-        <p className="Relax">
-          All Let’s Relax treatments are meticulously designed <br /> to take
-          our guest to the height of relaxation and relieve stress. <br />{" "}
-          Similarly, our spa packages let guests enjoy sets of spa treatments
-          that suit their specific desire. <br /> The standardized massage
-          technique makes sure you experience <br /> Let’s Relax Spa’s original
-          service every time, everywhere by our certified therapist.
-        </p>
-        <p className="book1">book now</p>
         <marquee direction="left" className="co1" scrollamount="20">
           cat japan onsen cat japan onsen cat japan onsen cat japan onsen cat
           japan onsen cat japan onsen cat japan onsen cat japan onsen cat japan
@@ -57,12 +58,20 @@ export default function Homeone() {
             <div class="pp4 ">アクセス</div>
           </div>
           <div class="map4 row">
-            <div class="map2 border border-1 text-start col-md-3 offset-md-3"> 19 Mae Ka Subdistrict, <br />
-          Mueang Phayao District, <br />
-          Phayao 56000 </div>
-          <div class="pp2 col-md-3 offset-md-3 text-center">Tel 054466666</div>
-            <div class="pp1 col-md-3 offset-md-3 text-start"> 19 Mae Ka Subdistrict, <br /> Mueang Phayao District,
-          <br /> Phayao 56000</div>
+            <div class="map2 border border-1 text-start col-md-3 offset-md-3">
+              {" "}
+              19 Mae Ka Subdistrict, <br />
+              Mueang Phayao District, <br />
+              Phayao 56000{" "}
+            </div>
+            <div class="pp2 col-md-3 offset-md-3 text-center">
+              Tel 054466666
+            </div>
+            <div class="pp1 col-md-3 offset-md-3 text-start">
+              {" "}
+              19 Mae Ka Subdistrict, <br /> Mueang Phayao District,
+              <br /> Phayao 56000
+            </div>
           </div>
         </div>
         <marquee direction="left" className="co2" scrollamount="5">
@@ -71,6 +80,9 @@ export default function Homeone() {
           onsencat japan onsen cat japan onsen cat japan onsencat japan onsen
           cat japan onsen cat japan onsen
         </marquee>
+      </div>
+      <div className="twotwo">
+        <Two />
       </div>
     </div>
   );
