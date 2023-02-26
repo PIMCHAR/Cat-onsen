@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './appointAdd.component.css';
+import AppointList from './appointList.component';
 
 function AppointAdd(prop) {
 
@@ -89,10 +90,10 @@ function AppointAdd(prop) {
 
   return (
     <>
-      <div className='d-flex justify-content-center'>
+      <div className='container d-flex justify-content-center'>
         <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-6 information-info">
+            <div className="col information-info" style={{ width: '700px' }}>
               <div className="row">
                 <div className="col">
                   <span>INFORMATION INFO</span>
@@ -143,12 +144,13 @@ function AppointAdd(prop) {
               <hr />
               <label htmlFor="formGroupExampleInput" className="form-label">Upload receipt</label>
               <input type="file" accept="image/png, image/jpeg" onChange={handleImageChange} required />
-              <button type="submit">Upload</button>
+              
             </div>
-            <div className="col-3">
+            <div className="col" style={{ width: '340px', height: '495px' }}>
               <div className="row summary">
                 <div className="col">
                   <span>Summary</span>
+                  <a href={<AppointList />}>back</a>
                 </div>
                 <div className="col text-end">
                 </div>

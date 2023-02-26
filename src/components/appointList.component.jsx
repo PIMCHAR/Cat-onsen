@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './appointList.component.css';
+import AppointAdd from '../components/appointAdd.component';
 import hotSpringPic from '../assets/hotSpring.svg';
 import massagePic from '../assets/massage.svg';
-import AppointAdd from '../components/appointAdd.component';
 
 function AppointList() {
 
@@ -34,6 +34,7 @@ function AppointList() {
                 { id: 1, value: "M01", disabled: listRoom.includes(1) },
                 { id: 2, value: "M02", disabled: listRoom.includes(2) },
                 { id: 3, value: "M03", disabled: listRoom.includes(3) },
+                { id: 4, value: "M04", disabled: listRoom.includes(4) }
             ])
         }
     };
@@ -146,9 +147,9 @@ function AppointList() {
     const checkboxAppointInfo = checkFormGetRoom ? (
         <>
 
-            <div className='col mx-0 m-5' style={{ width: '630px' }}>
+            <div className='col mx-0 m-5 px-4' style={{ width: '630px' }}>
                 <span>SELECT ROOMS</span>
-                <br></br>
+                <hr />
                 <div className={apType}>
                     {listRoomUn.map((option) => (
                         <label key={option.id}>
@@ -164,27 +165,31 @@ function AppointList() {
             </div>
             <div className='col-4 my-5'>
                 <span>SUMMARY</span>
-                <div className='summary mx-0'>
+                <div className='summary mx-0 '>
                     {titlePic()}
-                    <div className='row'>
+                    <div className='row my-4'>
                         <div className='col'>
-                            <span>Information</span>
-                            <span>{formatDate(apDate)}</span>
+                            <div><span>Information</span><br></br>
+                                {formatDate(apDate)}
+                            </div>
                         </div>
-                        <div className='col'>
-                            <span>{apTime.substring(0, 5)}</span>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col'>
-                            <span>ROOMS :</span>
-                            {checkedValues.join(', ')}
-                        </div>
-                        <div className='col'>
-                            <span>PRICE : {calPrice()} THB</span>
+                        <div className='col d-flex justify-content-end align-self-end'>
+                            <span className='s-time'>{apTime.substring(0, 5)}</span>
                         </div>
                     </div>
-                    <div className='row'>
+                    <div className='row my-4'>
+                        <div className='col'>
+                            <div><span>ROOMS :</span><br></br>
+                                {checkedValues.join(', ')}
+                            </div>
+                        </div>
+                        <div className='col'>
+                            <div><span>PRICE :</span><br></br>
+                                {calPrice()} THB
+                            </div>
+                        </div>
+                    </div>
+                    <div className='row mt-5 d-flex justify-content-center'>
                         <button type='submit' name='submit2' onClick={handleData}>APPOINT NOW</button>
                     </div>
                 </div>

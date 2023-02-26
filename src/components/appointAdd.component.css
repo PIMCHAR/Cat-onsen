@@ -1,5 +1,7 @@
 body {
     color: #fff;
+    font-family: "Shippori Mincho", serif;
+    
 }
 
 input{
@@ -28,7 +30,7 @@ button {
 }
 
 .submit-btn{
-    margin: 2rem;
+    width: 342px;
     height: 120px;
     font-size: 24px;
 }
