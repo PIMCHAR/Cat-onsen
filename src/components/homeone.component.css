@@ -71,8 +71,10 @@
 .map {
   background-color: #091e25;
   height: 500px;
+  background-image: url(../assets/coo.png);
 }
 .map1 {
+  background-image: url(../assets/coo.png);
   background-color: #091e25;
   height: 250px;
 }
@@ -118,8 +120,10 @@
   
 }
 .map3{
+  background-image: url(../assets/coo.png);
   background-color: #091e25;
 }
 .map4{
+  background-image: url(../assets/coo.png);
   background-color: #091e25;
 }
