@@ -5,6 +5,7 @@ import AppointAdd from '../components/appointAdd.component';
 import hotSpringPic from '../assets/hotSpring.svg';
 import massagePic from '../assets/massage.svg';
 
+
 function AppointList() {
 
     const today = new Date();
@@ -120,7 +121,7 @@ function AppointList() {
         if (apType === 'onsen') {
             return (
                 <>
-                    <div className='row'>
+                    <div className='row func-title'>
                         <div className='col-5'><img src={hotSpringPic} alt="logo hot spring" /></div>
                         <div className='col-6'>
                             <span style={{ fontSize: 'large' }}>Hot Spring</span><br></br>
@@ -132,7 +133,7 @@ function AppointList() {
         } else {
             return (
                 <>
-                    <div className='row'>
+                    <div className='row func-title'>
                         <div className='col-5'><img src={massagePic} alt="logo massage" /></div>
                         <div className='col-6'>
                             <span style={{ fontSize: 'large' }}>Thai Massage</span><br></br>
@@ -217,7 +218,7 @@ function AppointList() {
                             <div className='form-select'>
                                 <div className='row position-relative px-4'>
                                     <div className='col py-1'>
-                                        <label htmlFor="formGroupExampleInput" className="form-label">Check-in</label><br></br>
+                                        <label className="form-label">Check-in</label><br></br>
                                         <input
                                             type="date"
                                             name="date"
@@ -227,7 +228,7 @@ function AppointList() {
                                         />
                                     </div>
                                     <div className='col py-1'>
-                                        <label htmlFor="formGroupExampleInput" className="form-label ">Time</label><br></br>
+                                        <label className="form-label ">Time</label><br></br>
                                         <select
                                             name="time"
                                             value={apTime}
@@ -239,7 +240,7 @@ function AppointList() {
                                         </select>
                                     </div>
                                     <div className='col py-1'>
-                                        <label htmlFor="formGroupExampleInput" className="form-label ">Type</label><br></br>
+                                        <label className="form-label ">Type</label><br></br>
                                         <select
                                             name="type"
                                             value={apType}
