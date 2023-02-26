@@ -81,7 +81,7 @@
   color: #ffffff;
   background-color: transparent;
   margin-left: 19%;
-  margin-top: -80px;
+  margin-top: -30px;
 }
 .pp1 {
   font-size: 14px;
@@ -107,12 +107,15 @@
 }
 .map2{
   background-color: transparent;
-  width:30%;
-  height: 150px;
+  width:25%;
+  height: 100px;
   color: #ffffff;
+  text-align: center;
   margin-left: 60%;
   padding-top: 3%;
-  padding-left: 9%;
+  
+  border: 1.5px solid #bbbbbb;
+  
 }
 .map3{
   background-color: #091e25;
