@@ -4,8 +4,7 @@ import React from "react";
 // import Menu from "../components/menu"
 //import "./home.css";
 import Logo1 from '../components/logo1';
-
-
+//import Menuone from "../components/menu1";
 
 export default function Home() {
   return (
