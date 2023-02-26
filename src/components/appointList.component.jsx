@@ -106,7 +106,7 @@ function AppointList() {
             });
     };
 
-    const handleData = (event) => {
+    const handleData = () => {
         if (checkedValues.length > 0) {
             setCheckSendData(true);
             setCheckFormGetRoom(false);
@@ -119,49 +119,77 @@ function AppointList() {
         if (apType === 'onsen') {
             return (
                 <>
-                    <img src={hotSpringPic} alt="logo hot spring" />
-                    <span>Hot Spring</span>
-                    <span>45 mins</span>
+                    <div className='row'>
+                        <div className='col-5'><img src={hotSpringPic} alt="logo hot spring" /></div>
+                        <div className='col-6'>
+                            <span style={{ fontSize: 'large' }}>Hot Spring</span><br></br>
+                            <span>45 mins</span>
+                        </div>
+                    </div>
                 </>
             )
         } else {
             return (
                 <>
-                    <img src={massagePic} alt="logo massage" />
-                    <span>Thai Massage</span>
-                    <span>50 mins</span>
+                    <div className='row'>
+                        <div className='col-5'><img src={massagePic} alt="logo massage" /></div>
+                        <div className='col-6'>
+                            <span style={{ fontSize: 'large' }}>Thai Massage</span><br></br>
+                            <span>50 mins</span>
+                        </div>
+                    </div>
                 </>
             )
         }
     }
 
-    const checkboxAppointInfo = checkFormGetRoom ? (<>
-        <div>
-            {listRoomUn.map((option) => (
-                <label key={option.id}>
-                    <input
-                        type="checkbox"
-                        name={option.id}
-                        disabled={option.disabled}
-                        onChange={handleCheckboxChange}
-                    />
-                </label>
-            ))}
-        </div>
-        <div>
-            <span>SUMMARY</span>
-            <div>
-                {titlePic()}
-                <span>Information</span>
-                <span>{formatDate(apDate)}</span>
-                <span>{apTime.substring(0, 5)}</span>
-                <span>ROOMS :</span>
-                {checkedValues.join(', ')}
-                <span>PRICE : {calPrice()} THB</span>
-                <button type='submit' name='submit2' onClick={handleData}>APPOINT NOW</button>
+    const checkboxAppointInfo = checkFormGetRoom ? (
+        <>
+
+            <div className='col mx-0 m-5' style={{ width: '630px' }}>
+                <span>SELECT ROOMS</span>
+                <br></br>
+                <div className={apType}>
+                    {listRoomUn.map((option) => (
+                        <label key={option.id}>
+                            <input
+                                type="checkbox"
+                                name={option.id}
+                                disabled={option.disabled}
+                                onChange={handleCheckboxChange}
+                            />
+                        </label>
+                    ))}
+                </div>
             </div>
-        </div>
-    </>
+            <div className='col-4 my-5'>
+                <span>SUMMARY</span>
+                <div className='summary mx-0'>
+                    {titlePic()}
+                    <div className='row'>
+                        <div className='col'>
+                            <span>Information</span>
+                            <span>{formatDate(apDate)}</span>
+                        </div>
+                        <div className='col'>
+                            <span>{apTime.substring(0, 5)}</span>
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col'>
+                            <span>ROOMS :</span>
+                            {checkedValues.join(', ')}
+                        </div>
+                        <div className='col'>
+                            <span>PRICE : {calPrice()} THB</span>
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <button type='submit' name='submit2' onClick={handleData}>APPOINT NOW</button>
+                    </div>
+                </div>
+            </div>
+        </>
     ) : null;
 
 
@@ -178,37 +206,61 @@ function AppointList() {
                     dayDate={formatDate(apDate)}
                 />
             ) : (
-                <form onSubmit={handleSubmit}>
-                    <select
-                        name="type"
-                        value={apType}
-                        onChange={handleInputType}
-                    >
-                        <option value="onsen">onsen</option>
-                        <option value="massage">massage</option>
-                    </select>
-                    <input
-                        type="date"
-                        name="date"
-                        value={apDate}
-                        min={tomorrowFormatted}
-                        onChange={handleInputDate}
-                    />
-                    <select
-                        name="time"
-                        value={apTime}
-                        onChange={handleInputTime}
-                    >
-                        <option value="08:00:00.000+00:00">08:00</option>
-                        <option value="09:00:00.000+00:00">09:00</option>
-                        <option value="10:00:00.000+00:00">10:00</option>
-                    </select>
-                    <button type="submit" name="submit1">
-                        Check Availability
-                    </button>
-                </form>
+                <div className='container'>
+                    <form onSubmit={handleSubmit}>
+                        <div className='d-flex justify-content-center'>
+                            <div className='form-select'>
+                                <div className='row position-relative px-4'>
+                                    <div className='col py-1'>
+                                        <label htmlFor="formGroupExampleInput" className="form-label">Check-in</label><br></br>
+                                        <input
+                                            type="date"
+                                            name="date"
+                                            value={apDate}
+                                            min={tomorrowFormatted}
+                                            onChange={handleInputDate}
+                                        />
+                                    </div>
+                                    <div className='col py-1'>
+                                        <label htmlFor="formGroupExampleInput" className="form-label ">Time</label><br></br>
+                                        <select
+                                            name="time"
+                                            value={apTime}
+                                            onChange={handleInputTime}
+                                        >
+                                            <option value="08:00:00.000+00:00">08:00</option>
+                                            <option value="09:00:00.000+00:00">09:00</option>
+                                            <option value="10:00:00.000+00:00">10:00</option>
+                                        </select>
+                                    </div>
+                                    <div className='col py-1'>
+                                        <label htmlFor="formGroupExampleInput" className="form-label ">Type</label><br></br>
+                                        <select
+                                            name="type"
+                                            value={apType}
+                                            onChange={handleInputType}
+                                        >
+                                            <option value="onsen">onsen</option>
+                                            <option value="massage">massage</option>
+                                        </select>
+                                    </div>
+                                    <div className='col'>
+                                        <button type="submit" name="submit1">
+                                            Check <br></br> Availability
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div className='d-flex justify-content-center'>
+                        <div className='row mt-4' style={{ width: '1067px' }}>
+                            {checkboxAppointInfo}
+                        </div>
+                    </div>
+                </div>
             )}
-            {checkboxAppointInfo}
+
         </>
     );
 };
