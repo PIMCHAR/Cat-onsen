@@ -59,17 +59,15 @@ export default function Homeone() {
             <div class="pp4 ">アクセス</div>
           </div>
           <div class="map4 row">
-            <div class="map2 border border-1 text-start col-md-3 offset-md-3">
-              {" "}
+            <div class="map2 text-start col-md-3 offset-md-3">
               19 Mae Ka Subdistrict, <br />
               Mueang Phayao District, <br />
-              Phayao 56000{" "}
+              Phayao 56000
             </div>
             <div class="pp2 col-md-3 offset-md-3 text-center">
               Tel 054466666
             </div>
             <div class="pp1 col-md-3 offset-md-3 text-start">
-              {" "}
               19 Mae Ka Subdistrict, <br /> Mueang Phayao District,
               <br /> Phayao 56000
             </div>

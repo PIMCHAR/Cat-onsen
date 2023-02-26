@@ -1,26 +1,23 @@
-*{
-    font-family: "Shippori Mincho", serif;
-    
-}
-.fac{
-    width: 20px;
-    margin-top: 10pc;
-   
+.fac {
+  position: fixed;
+  width: 20px;
+  padding-top: 13%;
 }
 
-.name1{
-    position:fixed;
-    left: 3%;
-    top: 5%;
-    font-weight: bolder;
-    font-size: 45px;
+.name1 {
+    color: white;
+  position: fixed;
+  left: 3%;
+  top: 2%;
+  font-weight: bolder;
+  font-size: 45px;
 }
-.name2{
-    font-weight: bold;
-    padding-top: 25%;
-    padding-left: 95%;
+.name2 {
+  color: white;
+  position: fixed;
+  font-weight: bold;
+  padding-left: 95%;
+  margin-top: -15%;
+  
 }
-
-
-
 

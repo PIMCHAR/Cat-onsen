@@ -1,7 +1,4 @@
-* {
-  color: #1d3357;
-  font-family: "Shippori Mincho", serif;
-}
+
 .ppp {
   margin-top: 10%;
   background-color: #dfe4e9;
@@ -33,6 +30,7 @@
   font-size: 16px;
   font-weight: bold;
   text-decoration: underline;
+  color: #091e25;
 }
 .img1 {
   position: absolute;
@@ -41,7 +39,7 @@
   width: 450px;
 }
 .co1 {
-  top: 182%;
+  top: 185%;
   position: absolute;
   font-size: 150px;
   background: 0;
@@ -58,7 +56,7 @@
   font-size: 150px;
   left: 0px;
   position: absolute;
-  top: 343%;
+  top: 350%;
 }
 .img3 {
   position:relative;
@@ -89,8 +87,8 @@
   font-size: 14px;
   color: #ffffff;
   background-color: transparent;
-  margin-left: -19%;
-  margin-top: -3%;
+  margin-left: 19%;
+  margin-top: 1%;
 }
 .pp3{
   color: #ffffff;
@@ -103,7 +101,7 @@
 .pp4{
   color: #ffffff;
   background-color: transparent;
-  margin-left: -16%;
+  margin-left: 16%;
   padding: 1%;
   font-size: 60px;
 }
