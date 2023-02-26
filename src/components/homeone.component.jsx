@@ -2,6 +2,7 @@ import React from "react";
 import "./homeone.component.css";
 import Menu from "../components/menu";
 import Two from "../components/hometwo";
+import { Outlet, Link } from "react-router-dom";
 
 export default function Homeone() {
   return (
@@ -30,7 +31,7 @@ export default function Homeone() {
             technique makes sure you experience <br /> Let’s Relax Spa’s
             original service every time, everywhere by our certified therapist.
           </p>
-          <p className="book1">book now</p>
+          <Link to={`Booking`} className="book1">book now</Link>
         </p>
         <marquee direction="left" className="co1" scrollamount="20">
           cat japan onsen cat japan onsen cat japan onsen cat japan onsen cat
