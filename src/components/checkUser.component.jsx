@@ -41,9 +41,9 @@ export default function CheckUser() {
             const appointData = response.data;
 
             const apListOnsen = appointData.filter(ap => ap.onsen).map(ap => {
-                const date = new Date(ap.onsen.date);
-                const dateStr = date.toLocaleDateString();
-                const timeStr = date.toLocaleTimeString();
+                let date = new Date(ap.onsen.date);
+                let dateStr = date.toLocaleDateString();
+                let timeStr = date.toLocaleTimeString();
                 return {
                     room: ap.onsen.room,
                     date: dateStr,
@@ -52,9 +52,9 @@ export default function CheckUser() {
             });
 
             const apListMassage = appointData.filter(ap => ap.massage).map(ap => {
-                const date = new Date(ap.massage.date);
-                const dateStr = date.toLocaleDateString();
-                const timeStr = date.toLocaleTimeString();
+                let date = new Date(ap.massage.date);
+                let dateStr = date.toLocaleDateString();
+                let timeStr = date.toLocaleTimeString();
                 return {
                     room: ap.massage.room,
                     date: dateStr,
