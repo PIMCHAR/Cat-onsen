@@ -7,7 +7,7 @@ export default function Menu() {
     <div>
        
       <nav class="navbar fixed-top bg-transparent ">
-        <p class="name1 navbar-brand bg-transparent text-light" href="#">
+        <p class="name1 navbar-brand bg-transparent text-light">
           ネコ <br />
           日本 <br />
           温泉

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './appointAdd.component.css';
-import AppointList from './appointList.component';
+import './bs.css';
 
-function AppointAdd(prop) {
+export default function AppointAdd(prop) {
 
   const [image, setImage] = useState(null);
   const apType = prop.type;
@@ -94,30 +94,23 @@ function AppointAdd(prop) {
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col information-info" style={{ width: '700px' }}>
-              <div className="row">
-                <div className="col">
-                  <span>INFORMATION INFO</span>
-                </div>
-                <div className="col text-end">
-                  <span>you already have account ? </span>
-                  <span>LOGIN</span>
-                </div>
-              </div>
+              <span>INFORMATION INFO</span>
               <hr />
-              <div className="mb-3">
-                <label htmlFor="formGroupExampleInput" className="form-label">Yourname</label>
-                <input
-                  type="name"
-                  className="form-control"
-                  name="name"
-                  value={formUser.name}
-                  onChange={handleChange}
-                  required
-                />
+              <div className="row mb-3">
+                <div className='col'>
+                  <label className="form-label">Yourname</label><br></br>
+                  <input
+                    type="name"
+                    name="name"
+                    value={formUser.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
               <div className="row">
                 <div className="col">
-                  <label htmlFor="formGroupExampleInput" className="form-label">Email</label>
+                  <label className="form-label">Email</label><br />
                   <input
                     type="email"
                     name="email"
@@ -127,7 +120,7 @@ function AppointAdd(prop) {
                     required
                   /></div>
                 <div className="col">
-                  <label htmlFor="formGroupExampleInput" className="form-label">Telephone number</label>
+                  <label className="form-label">Telephone number</label><br />
                   <input
                     type="tel"
                     name="tel"
@@ -140,39 +133,51 @@ function AppointAdd(prop) {
               </div>
               <div className="information-info-heading">
                 <span>PAYMENT DETAILS</span>
+                <hr />
+                <div className='payment'>
+
+                </div>
+                <label className="form-label">Upload receipt</label><br />
+                <input className='uploadImg' type="file" accept="image/png, image/jpeg" onChange={handleImageChange} required />
               </div>
-              <hr />
-              <label htmlFor="formGroupExampleInput" className="form-label">Upload receipt</label>
-              <input type="file" accept="image/png, image/jpeg" onChange={handleImageChange} required />
-              
+
             </div>
-            <div className="col" style={{ width: '340px', height: '495px' }}>
+            <div className="col-3" style={{ width: '340px', height: '495px' }}>
               <div className="row summary">
                 <div className="col">
                   <span>Summary</span>
-                  <a href={<AppointList />}>back</a>
-                </div>
-                <div className="col text-end">
                 </div>
                 <hr />
                 {title()}
-                <span>Date</span>
-                {prop.dayDate}
-                <span>Session</span>
-                {prop.session.substring(0, 5)}
-                <span>Room</span>
-                {prop.checkedValues}
+                <div className='row'>
+                  <div className='col px-0'><span>Date</span></div>
+                  <div className='col text-end'>{prop.dayDate}</div>
+                </div>
+                <div className='row'>
+                  <div className='col px-0'><span>Session</span></div>
+                  <div className='col text-end'>{prop.session.substring(0, 5)}</div>
+                </div>
+                <div className='row'>
+                  <div className='col px-0'><span>Room</span></div>
+                  <div className='col text-end'>{prop.checkedValues}</div>
+                </div>
                 <hr style={{ border: "1px dashed #fff" }} />
-                <span>Subtotal</span>
-                {prop.price} THB
-                <span>Tax(7%)</span>
-                {calTax()} THB
+                <div className='row'>
+                  <div className='col px-0'><span>Subtotal</span></div>
+                  <div className='col text-end'> {prop.price} THB</div>
+                </div>
+                <div className='row'>
+                  <div className='col px-0'><span>Tax(7%)</span></div>
+                  <div className='col text-end'> {calTax()} THB</div>
+                </div>
                 <hr />
-                Total Amount
-                {calToTal()} THB
+                <div className='row text-center '>
+                  <span>Total Amount</span><br />
+                  <span>{calToTal()} THB</span>
+                </div>
               </div>
-              <div className="row submit-btn">
-                <button type="submit">CONFIRM</button>
+              <div className="row" style={{ justifyContent: 'center', width: '547px' }}>
+                <button className='submit-btn' type="submit">CONFIRM</button>
               </div>
             </div>
           </div>
@@ -181,5 +186,3 @@ function AppointAdd(prop) {
     </>
   );
 };
-
-export default AppointAdd;

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './appointList.component.css';
+import './bs.css';
 import AppointAdd from '../components/appointAdd.component';
 import hotSpringPic from '../assets/hotSpring.svg';
 import massagePic from '../assets/massage.svg';
 
 
-function AppointList() {
+export default function AppointList() {
 
     const today = new Date();
     const tomorrow = new Date(today);
@@ -43,16 +44,19 @@ function AppointList() {
     const handleInputType = (event) => {
         setApType(event.target.value);
         setCheckFormGetRoom(false);
+        setSelectedRooms([]);
     };
 
     const handleInputDate = (event) => {
         setApDate(event.target.value);
         setCheckFormGetRoom(false);
+        setSelectedRooms([]);
     };
 
     const handleInputTime = (event) => {
         setApTime(event.target.value);
         setCheckFormGetRoom(false);
+        setSelectedRooms([]);
     };
 
     const handleCheckboxChange = (event) => {
@@ -122,9 +126,9 @@ function AppointList() {
             return (
                 <>
                     <div className='row func-title'>
-                        <div className='col-5'><img src={hotSpringPic} alt="logo hot spring" /></div>
-                        <div className='col-6'>
-                            <span style={{ fontSize: 'large' }}>Hot Spring</span><br></br>
+                        <div className='col-4'><img src={hotSpringPic} alt="logo hot spring" /></div>
+                        <div className='col-4'>
+                            <span style={{ fontSize: 'large' }}>Hot Spring</span><br/>
                             <span>45 mins</span>
                         </div>
                     </div>
@@ -134,9 +138,9 @@ function AppointList() {
             return (
                 <>
                     <div className='row func-title'>
-                        <div className='col-5'><img src={massagePic} alt="logo massage" /></div>
-                        <div className='col-6'>
-                            <span style={{ fontSize: 'large' }}>Thai Massage</span><br></br>
+                        <div className='col-4'><img src={massagePic} alt="logo massage" /></div>
+                        <div className='col-4'>
+                            <span style={{ fontSize: 'large' }}>Thai Massage</span><br/>
                             <span>50 mins</span>
                         </div>
                     </div>
@@ -147,7 +151,6 @@ function AppointList() {
 
     const checkboxAppointInfo = checkFormGetRoom ? (
         <>
-
             <div className='col mx-0 m-5 px-4' style={{ width: '630px' }}>
                 <span>SELECT ROOMS</span>
                 <hr />
@@ -166,11 +169,11 @@ function AppointList() {
             </div>
             <div className='col-4 my-5'>
                 <span>SUMMARY</span>
-                <div className='summary mx-0 '>
+                <div className='summary mx-0'>
                     {titlePic()}
                     <div className='row my-4'>
                         <div className='col'>
-                            <div><span>Information</span><br></br>
+                            <div><span>Information</span><br/>
                                 {formatDate(apDate)}
                             </div>
                         </div>
@@ -180,12 +183,12 @@ function AppointList() {
                     </div>
                     <div className='row my-4'>
                         <div className='col'>
-                            <div><span>ROOMS :</span><br></br>
+                            <div><span>ROOMS :</span><br/>
                                 {checkedValues.join(', ')}
                             </div>
                         </div>
                         <div className='col'>
-                            <div><span>PRICE :</span><br></br>
+                            <div><span>PRICE :</span><br/>
                                 {calPrice()} THB
                             </div>
                         </div>
@@ -212,13 +215,13 @@ function AppointList() {
                     dayDate={formatDate(apDate)}
                 />
             ) : (
-                <div className='container'>
+                <div className='container booking'>
                     <form onSubmit={handleSubmit}>
                         <div className='d-flex justify-content-center'>
                             <div className='form-select'>
                                 <div className='row position-relative px-4'>
                                     <div className='col py-1'>
-                                        <label className="form-label">Check-in</label><br></br>
+                                        <label className="form-label">Check-in</label><br/>
                                         <input
                                             type="date"
                                             name="date"
@@ -227,8 +230,8 @@ function AppointList() {
                                             onChange={handleInputDate}
                                         />
                                     </div>
-                                    <div className='col py-1'>
-                                        <label className="form-label ">Time</label><br></br>
+                                    <div className='col py-1' style={{marginLeft:'1.5rem'}}>
+                                        <label className="form-label ">Time</label><br/>
                                         <select
                                             name="time"
                                             value={apTime}
@@ -240,7 +243,7 @@ function AppointList() {
                                         </select>
                                     </div>
                                     <div className='col py-1'>
-                                        <label className="form-label ">Type</label><br></br>
+                                        <label className="form-label ">Type</label><br/>
                                         <select
                                             name="type"
                                             value={apType}
@@ -252,7 +255,7 @@ function AppointList() {
                                     </div>
                                     <div className='col'>
                                         <button type="submit" name="submit1">
-                                            Check <br></br> Availability
+                                            Check <br/> Availability
                                         </button>
                                     </div>
                                 </div>
@@ -270,4 +273,3 @@ function AppointList() {
         </>
     );
 };
-export default AppointList;

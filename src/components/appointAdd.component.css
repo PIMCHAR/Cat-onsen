@@ -1,24 +1,32 @@
-/* body {
+body {
     color: #fff;
     font-family: "Shippori Mincho", serif;
     
 }
 
-input{
-    background-color: transparent !important;
-    color: #fff !important;
-}
-
-button {
-    background-color: transparent !important;
-    color: #fff;
-    border-color: #fff;
-} */
-
 .information-info {
     margin-top: 2rem;
     background-color: #102833;
     padding: 30px;
+}
+
+.information-info button {
+    background-color: transparent !important;
+    color: #fff;
+    border-color: #fff;
+}
+
+.information-info input{
+    background-color: transparent !important;
+    color: #fff !important;
+    border-color: #fff;
+    height: 35px;
+    width: 260px;
+    border-radius: 10px;
+}
+
+.information-info input[type='name']{
+    width:560px;
 }
 
 .summary {
@@ -27,10 +35,21 @@ button {
     border-style: solid;
     border-radius: 25px;
     padding: 30px;
+    font-size: xx-large;
 }
 
 .submit-btn{
     width: 342px;
     height: 120px;
     font-size: 24px;
+    background-color: transparent !important;
+    border-color: #fff;
+}
+
+.payment{
+    width: 560px;
+    height:125px;
+    border-color: #fff;
+    border-radius: 10px;
+    border: 1px solid;
 }
