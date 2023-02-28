@@ -37,7 +37,7 @@ export default function Homeone() {
             book now
           </Link>
         </p>
-        <marquee direction="left" className="co1" scrollamount="20">
+        <marquee direction="left" className="co1" scrollamount="5">
           cat japan onsen cat japan onsen cat japan onsen cat japan onsen cat
           japan onsen cat japan onsen cat japan onsen cat japan onsen cat japan
           onsencat japan onsen cat japan onsen cat japan onsencat japan onsen

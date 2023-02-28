@@ -2,12 +2,23 @@ body{
     background-color: #091E25;
 }
 
-.banner{
-    background-repeat: repeat-x;
-}
+.cobookig {
+    top: 35%;
+    position: absolute;
+    font-size: 150px;
+    background: 0;
+    opacity: 10%;
+    left: 0px;
+    color: #FFFFFF;
+    -webkit-text-stroke: 3px #1d3357;
+  }
 
 .compo{
     display: flex;
     justify-content: center;
 }
 
+.booking img {
+    margin-right: 0px !important;
+    
+}

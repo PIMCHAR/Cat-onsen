@@ -96,8 +96,8 @@ export default function AppointAdd(prop) {
             <div className="col information-info" style={{ width: '700px' }}>
               <span>INFORMATION INFO</span>
               <hr />
-              <div className="row mb-3">
-                <div className='col'>
+              <div className="row mb-3 ">
+                <div className='col mx-5'>
                   <label className="form-label">Yourname</label><br></br>
                   <input
                     type="name"
@@ -109,7 +109,7 @@ export default function AppointAdd(prop) {
                 </div>
               </div>
               <div className="row">
-                <div className="col">
+                <div className="col-4 mx-5">
                   <label className="form-label">Email</label><br />
                   <input
                     type="email"
@@ -119,7 +119,7 @@ export default function AppointAdd(prop) {
                     onChange={handleChange}
                     required
                   /></div>
-                <div className="col">
+                <div className="col mx-0 px-0">
                   <label className="form-label">Telephone number</label><br />
                   <input
                     type="tel"
@@ -131,21 +131,23 @@ export default function AppointAdd(prop) {
                   />
                 </div>
               </div>
-              <div className="information-info-heading">
+              <div className="information-info-heading ">
                 <span>PAYMENT DETAILS</span>
                 <hr />
-                <div className='payment'>
+                <div className='payment mx-5'>
 
                 </div>
-                <label className="form-label">Upload receipt</label><br />
-                <input className='uploadImg' type="file" accept="image/png, image/jpeg" onChange={handleImageChange} required />
+                <div className=' mx-5'>
+                  <label className="form-label">Upload receipt</label><br />
+                  <input className='uploadImg' type="file" accept="image/png, image/jpeg" onChange={handleImageChange} required />
+                </div>
               </div>
 
             </div>
-            <div className="col-3" style={{ width: '340px', height: '495px' }}>
+            <div className="col-2" style={{ width: '340px', height: '495px' }}>
               <div className="row summary">
                 <div className="col">
-                  <span>Summary</span>
+                  <span className='information-info-heading'>Summary</span>
                 </div>
                 <hr />
                 {title()}
@@ -173,7 +175,7 @@ export default function AppointAdd(prop) {
                 <hr />
                 <div className='row text-center '>
                   <span>Total Amount</span><br />
-                  <span>{calToTal()} THB</span>
+                  <span className='price'>{calToTal()} THB</span>
                 </div>
               </div>
               <div className="row" style={{ justifyContent: 'center', width: '547px' }}>

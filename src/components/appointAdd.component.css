@@ -4,6 +4,11 @@ body {
     
 }
 
+.information-info-heading {
+    font-size: x-large;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
 .information-info {
     margin-top: 2rem;
     background-color: #102833;
@@ -23,19 +28,25 @@ body {
     height: 35px;
     width: 260px;
     border-radius: 10px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .information-info input[type='name']{
-    width:560px;
+    width:575px;
 }
 
 .summary {
     margin: 2rem;
+    margin-left: 2.5rem;
     justify-content: center;
     border-style: solid;
     border-radius: 25px;
-    padding: 30px;
+    padding: 35px;
     font-size: xx-large;
+}
+.summary span{
+    line-height: 30px;
 }
 
 .submit-btn{
@@ -47,9 +58,15 @@ body {
 }
 
 .payment{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 560px;
     height:125px;
     border-color: #fff;
     border-radius: 10px;
     border: 1px solid;
+}
+
+.price{
+    font-size: 32px;
 }
