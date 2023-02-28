@@ -15,6 +15,7 @@
 .name2 {
   color: white;
   position: fixed;
+  position:absolute;
   font-weight: bold;
   padding-left: 95%;
   margin-top: -15%;

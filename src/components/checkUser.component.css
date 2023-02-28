@@ -1,0 +1,79 @@
+.ff{
+    padding-left: 38%;
+}
+.f{
+text-align: center;
+}
+.f1{
+    font-size: 60px;
+    background-color: transparent;
+    height: 150px;
+}
+.ff input{
+    margin-top: 1rem;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    width: 350px;
+    height: 45px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.ff button{
+    width: 150px;
+    height:50px;
+    border-radius: 10px;
+    background-color: transparent;
+    border-color:#fff ;
+}
+.r{
+    margin-left: 13%;
+    margin-top: 2%;
+    font-weight: bold;
+    font-size: 20px;
+}
+.ff button:hover{
+    background-color: #fff;
+    color: rgb(29, 33, 108);
+}
+.cola{
+    color: transparent;
+    -webkit-text-stroke: 3px #a0afc6;
+    background: 0;
+    opacity: 20%;
+    font-size: 150px;
+    left: 0px;
+    position: absolute;
+    top: 70%;
+  }
+.alog{
+    margin-top: 5%;
+    text-align: center;
+}
+.ki,.ko ,.kl,.oo{
+    font-size: 30px;
+}
+.kp{
+    font-size: 40px;
+}
+.ok{
+    text-align: center;
+}
+.er{
+    color: black;
+    background-color: transparent;
+}
+.sc select{
+    color: black;
+}
+.mm button{
+    width: 150px;
+    height:50px;
+    border-radius: 10px;
+    background-color: transparent;
+    border-color:#fff ;
+
+}
+.mm{
+    text-align: center;
+}
