@@ -8,11 +8,13 @@
   padding-top: 30%;
   margin-left: 10%;
   font-size: 40px;
+  color:#0b163f;
 }
 .Relax {
   padding-top: 2%;
   font-size: medium;
   font-weight: lighter;
+  color:#0b163f;
 }
 .img2 {
   position: absolute;
@@ -110,11 +112,12 @@
 }
 .map2{
   background-color: transparent;
-  width:25%;
+  width:20%;
   height: 100px;
   color: #ffffff;
   margin-left: 60%;
   padding-top: 3%;
+  padding-left: 7%;
   text-align: center;
   border: 1.5px solid #bbbbbb;
 

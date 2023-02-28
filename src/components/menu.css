@@ -1,7 +1,8 @@
 .fac {
   position: fixed;
   width: 20px;
-  padding-top: 13%;
+  padding-top: 2%;
+ 
 }
 
 .name1 {
@@ -15,10 +16,10 @@
 .name2 {
   color: white;
   position: fixed;
-  position:absolute;
+margin-top: -15%;
   font-weight: bold;
   padding-left: 95%;
-  margin-top: -15%;
+  
   
 }
 

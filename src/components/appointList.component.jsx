@@ -5,6 +5,7 @@ import './bs.css';
 import AppointAdd from '../components/appointAdd.component';
 import hotSpringPic from '../assets/hotSpring.svg';
 import massagePic from '../assets/massage.svg';
+import { Link } from 'react-router-dom';
 
 
 export default function AppointList() {
@@ -194,7 +195,7 @@ export default function AppointList() {
                         </div>
                     </div>
                     <div className='row mt-5 d-flex justify-content-center'>
-                        <button type='submit' name='submit2' onClick={handleData}>APPOINT NOW</button>
+                      <Link to={'/'}> <button type='submit' name='submit2' onClick={handleData}>APPOINT NOW</button> </Link> 
                     </div>
                 </div>
             </div>
@@ -254,7 +255,7 @@ export default function AppointList() {
                                         </select>
                                     </div>
                                     <div className='col'>
-                                        <button type="submit" name="submit1">
+                                        <button  type="submit" name="submit1">
                                             Check <br/> Availability
                                         </button>
                                     </div>
