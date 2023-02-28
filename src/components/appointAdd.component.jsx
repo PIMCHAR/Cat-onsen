@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './appointAdd.component.css';
 import './bs.css';
+import { Link } from 'react-router-dom';
 
 export default function AppointAdd(prop) {
 
@@ -179,7 +180,7 @@ export default function AppointAdd(prop) {
                 </div>
               </div>
               <div className="row" style={{ justifyContent: 'center', width: '547px' }}>
-                <button className='submit-btn' type="submit">CONFIRM</button>
+              <Link to={'/'}>  <button className='submit-btn' type="submit">CONFIRM</button> </Link>
               </div>
             </div>
           </div>
