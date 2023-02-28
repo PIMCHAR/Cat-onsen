@@ -22,3 +22,10 @@ body{
     margin-right: 0px !important;
     
 }
+
+.footer{
+    /* position: absolute; */
+    height: 500px;
+    top: 2000px !important;
+    left: 30%;
+}
