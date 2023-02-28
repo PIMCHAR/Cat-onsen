@@ -4,27 +4,50 @@ import axios from 'axios';
 export default function CheckUser() {
 
     const [checkMember, setCheckMember] = useState(true);
+
     const [member, setMember] = useState({
         email: 'kumamumi.seup@gmail.com',
         tel: '0951128117',
     });
-    const [memberName, setMemberName] = useState('');
 
-    const [listOnsen, setListOnsen] = useState([]);
-    const [listMassage, setListMassage] = useState([]);
+    const [appoint, setAppoint] = useState([]);
 
-    const [listDateOnsen, setListDateOnsen] = useState([]);
-    const [listDateMassage, setListDateMassage] = useState([]);
+    
+    const apListOnsen = appoint.filter(ap => ap.onsen).map(ap => {
+        const date = new Date(ap.onsen.date);
+        const dateStr = date.toLocaleDateString();
+        const timeStr = date.toLocaleTimeString();
+        return {
+            room: ap.onsen.room,
+            date: dateStr,
+            time: timeStr
+        };
+    });
+    const dateOnsen = apListOnsen.map(item => item.date);
+    const listDateOnsen = [...new Set(dateOnsen)];
 
-    const [focusDate, setFocusDate] = useState('');
-    const [focusTime, setFocusTime] = useState('');
-    const [focusType, setFocusType] = useState('');
+    const apListMassage = appoint.filter(ap => ap.massage).map(ap => {
+        const date = new Date(ap.massage.date);
+        const dateStr = date.toLocaleDateString();
+        const timeStr = date.toLocaleTimeString();
+        return {
+            room: ap.massage.room,
+            date: dateStr,
+            time: timeStr
+        };
+    });
+    const dateMassage = apListMassage.map(item => item.date);
+    const listDateMassage = [...new Set(dateMassage)]
+
 
     const [sTime, setSTime] = useState(false);
     const [sType, setSType] = useState(false);
 
+    const [listTime, setListTime] = useState([]);
 
-    const [listTime, setListTime] = useState([3.00, 4.00, 5.00]);
+    const [focusDate, setFocusDate] = useState('2/23/2023');
+    const [focusTime, setFocusTime] = useState('');
+    const [focusType, setFocusType] = useState('');
 
     const handleChange = (event) => {
         setMember({
@@ -32,68 +55,6 @@ export default function CheckUser() {
             [event.target.name]: event.target.value
         });
     };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        try {
-            const response = await axios.post(`http://localhost:8080/user/check`, member);
-            const appointData = response.data;
-
-            const apListOnsen = appointData.filter(ap => ap.onsen).map(ap => {
-                let date = new Date(ap.onsen.date);
-                let dateStr = date.toLocaleDateString();
-                let timeStr = date.toLocaleTimeString();
-                return {
-                    room: ap.onsen.room,
-                    date: dateStr,
-                    time: timeStr
-                };
-            });
-
-            const apListMassage = appointData.filter(ap => ap.massage).map(ap => {
-                let date = new Date(ap.massage.date);
-                let dateStr = date.toLocaleDateString();
-                let timeStr = date.toLocaleTimeString();
-                return {
-                    room: ap.massage.room,
-                    date: dateStr,
-                    time: timeStr
-                };
-            });
-
-            const dateOnsen = apListOnsen.map(item => item.date);
-            const dateMassage = apListMassage.map(item => item.date);
-
-            const uqDateOn = [...new Set(dateOnsen)];
-            const uqDateMa = [...new Set(dateMassage)];
-
-            const memberName = appointData[0].name;
-
-            setCheckMember(false);
-
-            setMemberName(memberName);
-
-            setListOnsen(apListOnsen);
-            setListMassage(apListMassage);
-
-            setListDateOnsen(uqDateOn);
-            setListDateMassage(uqDateMa);
-
-            console.log(listOnsen)
-            console.log(listDateOnsen)
-
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    const setTime = () => {
-        const bothAppoint = [...listOnsen, ...listMassage];
-        const filteredAppoints = bothAppoint.filter(ap => ap.date === { focusDate });
-        const uqTime = Array.from(new Set(filteredAppoints));
-        setListTime(uqTime);
-    }
 
     const handleChangeDate = (event) => {
         setFocusDate(event.target.value);
@@ -107,27 +68,44 @@ export default function CheckUser() {
         setSType(true);
     }
 
-    const handleChangeType = (event) => {
-        setFocusType(event.target.value);
+    // const handleChangeType = (event) => {
+    //     setFocusType(event.target.value);
+    // }
+
+    const setTime = () => {
+        const bothAppoint = [...apListOnsen, ...apListMassage];
+        
+        const time = [];
+        for (let index = 0; index < bothAppoint.length; index++) {
+            if (bothAppoint[index].date === focusDate) {
+                time.push(bothAppoint[index].time)
+            }
+        }
+        setListTime(Array.from(new Set(time)))
+
     }
 
-    //component แรกที่มี input email tel กับปุ่ม ไว้เช็ค User
-    const calMemberForm = checkMember ? (
-        <>
-            <form action="handleSubmit">
-                <input type="email" value={member.email} onChange={handleChange} />
-                <input type="tel" value={member.tel} onChange={handleChange} />
-                <button onClick={handleSubmit}></button>
-            </form>
-        </>
-    ) : null;
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            let response = []
+            await axios.post(`http://localhost:8080/user/check`, member)
+                .then(res => response.push(...res.data));
+            setAppoint(response);
+
+            setCheckMember(false);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     const calTimeOp = sTime ? (
         <>
             <select name='time'
                 value={focusTime}
                 onChange={handleChangeTime}>
-                {listTime.map((option,index) => (
+                {listTime.map((option, index) => (
                     <option key={`time-${index}`} value={option}>{option}</option>
                 ))}
             </select>
@@ -135,19 +113,32 @@ export default function CheckUser() {
         </>
     ) : null;
 
-    console.log(focusDate)
-   
+
+    //component แรกที่มี input email tel กับปุ่ม ไว้เช็ค User
+    const calMemberForm = checkMember ? (
+        <>
+            <form onSubmit={handleSubmit}>
+                <input type="email" value={member.email} onChange={handleChange} />
+                <input type="tel" value={member.tel} onChange={handleChange} />
+                <button type='submit'></button>
+            </form>
+        </>
+    ) : null;
+
+
     return (
+        
         <>
             {/* components หลังจากที่กดเช็คไปแล้ว */}
             {!checkMember ? (
                 <div>
                     <div>
                         <span>Profile</span>
-                        <span>Name : {memberName}</span>
-                        <span>Email : {member.email}</span>
-                        <span>Tel : {member.tel}</span>
+                        <span>Name : {appoint[0].name}</span>
+                        <span>Email : {appoint[0].email}</span>
+                        <span>Tel : {appoint[0].tel}</span>
                     </div>
+
                     <div>
                         <span>Booking</span>
                         <div>
@@ -155,13 +146,14 @@ export default function CheckUser() {
                             <select name='date'
                                 value={focusDate}
                                 onChange={handleChangeDate}>
+                                <option hidden selected></option>
                                 <option disabled>Onsen</option>
                                 {listDateOnsen.map((option, index) => (
-                                    <option key={`onsen-${index}`} value={option} >{option}</option>
+                                    <option key={`onsen-${index}`} value={option} >{option.substring(0, 10)}</option>
                                 ))}
                                 <option disabled>Massage</option>
                                 {listDateMassage.map((option, index) => (
-                                    <option key={`massage-${index}`} value={option} >{option}</option>
+                                    <option key={`massage-${index}`} value={option} >{option.substring(0, 10)}</option>
                                 ))}
                             </select>
                             {calTimeOp}
