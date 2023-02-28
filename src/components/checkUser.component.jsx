@@ -189,7 +189,7 @@ export default function CheckUser() {
   const calMemberForm = checkMember ? (
     <>
       <div className="f">
-        <h1 className="f1">Log In</h1>
+        <h1 className="f1">Check Booking</h1>
       </div>
       <form onSubmit={handleSubmit} className="ff">
         <h2>Email</h2>
@@ -202,7 +202,7 @@ export default function CheckUser() {
           onChange={handleChange}
         /> <br /> <br />
         <button className="r" type="submit">
-          log in
+        Check
         </button>
         <marquee direction="left" className="cola" scrollamount="5">
           cat japan onsen cat japan onsen cat japan onsen cat japan onsen cat

@@ -17,7 +17,7 @@ export default function Menuone() {
             <li><a href="#">タイマッサージ Thai Massage</a></li>
             <li><a href="#">温泉 Onsen</a></li>
             <li><a href={booking}>予約 Book Now</a></li>
-            <li><a href={check}>ログインする Login</a></li>
+            <li><a href={check}>Check Booking</a></li>
          </ul>
       </div>
     </div>
